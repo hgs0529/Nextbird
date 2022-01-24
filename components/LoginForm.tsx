@@ -18,7 +18,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
   const onSubmitForm = useCallback(() => {
     console.log(id, password);
     setIsLoggedIn(true);
-  }, [id, password]);
+  }, [password, id]);
 
   return (
     <FormWrapper onFinish={onSubmitForm}>
