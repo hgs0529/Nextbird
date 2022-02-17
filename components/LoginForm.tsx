@@ -1,23 +1,19 @@
 import { Button, Form, Input } from "antd";
+import useInput from "hooks/useInput";
 import Link from "next/link";
 import React, { useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
+import { loginAction } from "reducers/user";
 import styled from "styled-components";
 
-const LoginForm = ({ setIsLoggedIn }) => {
-  const [id, setId] = useState("hgs_0529@naver.com");
-  const [password, setPassword] = useState("2232405r");
-
-  const onChangeId = useCallback((e: { target: HTMLInputElement }) => {
-    console.log(e.target.value);
-  }, []);
-
-  const onChangePwd = useCallback((e: { target: HTMLInputElement }) => {
-    console.log(e.target.value);
-  }, []);
+const LoginForm = () => {
+  const dispatch = useDispatch();
+  const [id, onChangeId] = useInput("");
+  const [password, onChangePwd] = useInput("");
 
   const onSubmitForm = useCallback(() => {
     console.log(id, password);
-    setIsLoggedIn(true);
+    dispatch(loginAction({ id, password }));
   }, [password, id]);
 
   return (

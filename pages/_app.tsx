@@ -1,6 +1,7 @@
 import React from "react";
 import "antd/dist/antd.css";
 import Head from "next/head";
+import wrapper from "store/confiqureStore";
 
 interface Props {
   Component: React.ElementType;
@@ -18,4 +19,4 @@ const app = ({ Component }: Props) => {
   );
 };
 
-export default app;
+export default wrapper.withRedux(app);

@@ -1,16 +1,18 @@
 import React, { ReactChild, ReactChildren, useState } from "react";
 import Link from "next/link";
 import { Col, Input, Menu, Row } from "antd";
+import { useSelector } from "react-redux";
 import LoginForm from "./LoginForm";
 import UserProfile from "./UserProfile";
 import styled from "styled-components";
+import { StateProps } from "interface/user";
 
 interface Props {
   children: ReactChild | ReactChildren;
 }
 
 const AppLayout = ({ children }: Props) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn } = useSelector((state: StateProps) => state.user);
 
   return (
     <div role="navigation">
@@ -36,11 +38,7 @@ const AppLayout = ({ children }: Props) => {
       </Menu>
       <Row gutter={8}>
         <Col xs={24} md={6}>
-          {isLoggedIn ? (
-            <UserProfile setIsLoggedIn={setIsLoggedIn} />
-          ) : (
-            <LoginForm setIsLoggedIn={setIsLoggedIn} />
-          )}
+          {isLoggedIn ? <UserProfile /> : <LoginForm />}
         </Col>
         <Col xs={24} md={12}>
           {children}
