@@ -4,8 +4,8 @@ const initialState = {
   mainPosts: [
     {
       id: 1,
-      user: {
-        id: 1,
+      User: {
+        id: "hgs0529",
         nickname: "eden",
       },
       content: "첫 번째 게시글 #해시태그 #익스프레스",

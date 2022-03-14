@@ -1,6 +1,8 @@
 export interface User {
   isLoggedIn: boolean;
-  user: any;
+  me: {
+    id: string;
+  };
   signUpData: {};
   loginData: {};
 }

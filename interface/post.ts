@@ -1,21 +1,15 @@
+export interface ImageSrc {
+  src: string;
+}
+
 export interface Post {
   id: number;
-  user: {
-    id: number;
+  User: {
+    id: string;
     nickname: string;
   };
   content: string;
-  Images: [
-    {
-      src: string;
-    },
-    {
-      src: string;
-    },
-    {
-      src: string;
-    }
-  ];
+  Images: ImageSrc[];
   Comments: [
     {
       user: {

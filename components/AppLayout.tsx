@@ -1,11 +1,11 @@
-import React, { ReactChild, ReactChildren, useState } from "react";
+import React, { ReactChild, ReactChildren } from "react";
 import Link from "next/link";
 import { Col, Input, Menu, Row } from "antd";
 import { useSelector } from "react-redux";
 import LoginForm from "./LoginForm";
 import UserProfile from "./UserProfile";
 import styled from "styled-components";
-import { StateProps } from "interface/user";
+import { StateProps } from "interface/reducer";
 
 interface Props {
   children: ReactChild | ReactChildren;
@@ -19,7 +19,7 @@ const AppLayout = ({ children }: Props) => {
       <Menu mode="horizontal">
         <Menu.Item key="1">
           <Link href="/">
-            <a>노드버드</a>
+            <a>넥스트버드</a>
           </Link>
         </Menu.Item>
         <Menu.Item key="2">
