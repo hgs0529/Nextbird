@@ -4,18 +4,34 @@ import { Col, Input, Menu, Row } from "antd";
 import { useSelector } from "react-redux";
 import LoginForm from "./LoginForm";
 import UserProfile from "./UserProfile";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { StateProps } from "interface/reducer";
 
 interface Props {
   children: ReactChild | ReactChildren;
 }
 
+const Global = createGlobalStyle`
+  .ant-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .ant-col:first-child {
+    padding-left: 0 !important;
+  }
+
+  .ant-col:last-child {
+    padding-right: 0 !important;
+  }
+`;
+
 const AppLayout = ({ children }: Props) => {
   const { isLoggedIn } = useSelector((state: StateProps) => state.user);
 
   return (
     <div role="navigation">
+      <Global />
       <Menu mode="horizontal">
         <Menu.Item key="1">
           <Link href="/">

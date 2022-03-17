@@ -2,6 +2,13 @@ export interface ImageSrc {
   src: string;
 }
 
+export interface Comment {
+  User: {
+    nickname: string;
+  };
+  content: string;
+}
+
 export interface Post {
   id: number;
   User: {
@@ -10,20 +17,7 @@ export interface Post {
   };
   content: string;
   Images: ImageSrc[];
-  Comments: [
-    {
-      user: {
-        nickname: string;
-      };
-      content: string;
-    },
-    {
-      user: {
-        nickname: string;
-      };
-      content: string;
-    }
-  ];
+  Comments: Comment[];
 }
 
 export interface Posts {

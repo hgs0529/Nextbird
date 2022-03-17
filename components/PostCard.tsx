@@ -11,6 +11,7 @@ import { StateProps } from "interface/reducer";
 import React, { useCallback, useState } from "react";
 import { useSelector } from "react-redux";
 import CommentForm from "./CommentForm";
+import PostCardContent from "./PostCardContent";
 import PostImages from "./PostImages";
 
 const PostCard = ({ post }: { post: Post }) => {
@@ -65,7 +66,7 @@ const PostCard = ({ post }: { post: Post }) => {
         <Card.Meta
           avatar={<Avatar>{post.User.nickname[0]}</Avatar>}
           title={post.User.nickname}
-          description={post.content}
+          description={<PostCardContent postData={post.content} />}
         />
       </Card>
       {commentFormOpened && (
@@ -78,8 +79,8 @@ const PostCard = ({ post }: { post: Post }) => {
             renderItem={(item) => (
               <li>
                 <Comment
-                  author={item.user.nickname}
-                  avatar={<Avatar>{item.user.nickname[0]}</Avatar>}
+                  author={item.User.nickname}
+                  avatar={<Avatar>{item.User.nickname[0]}</Avatar>}
                   content={item.content}
                 />
               </li>

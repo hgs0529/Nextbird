@@ -22,13 +22,13 @@ const initialState = {
       ],
       Comments: [
         {
-          user: {
+          User: {
             nickname: "hui",
           },
           content: "와 고양이 기욥네요",
         },
         {
-          user: {
+          User: {
             nickname: "reo",
           },
           content: "냐아~",

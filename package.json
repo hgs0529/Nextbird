@@ -17,6 +17,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
+    "react-slick": "^0.28.1",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
     "styled-components": "^5.3.3"
@@ -25,6 +26,7 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@types/react": "^17.0.38",
+    "@types/react-slick": "^0.23.8",
     "@types/styled-components": "^5.1.21",
     "eslint": "^8.7.0",
     "eslint-plugin-hooks": "^0.4.1",

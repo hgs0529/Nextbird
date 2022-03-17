@@ -1,12 +1,19 @@
 import { PlusOutlined } from "@ant-design/icons";
 import { ImageSrc } from "interface/post";
 import React, { useCallback, useState } from "react";
+import ImageZoom from "./ImageZoom";
 
 const PostImages = ({ images }: { images: ImageSrc[] }) => {
   const [showImagesZoom, setShowImagesZoom] = useState(false);
+
   const onZoom = useCallback(() => {
     setShowImagesZoom(true);
   }, []);
+
+  const onClose = useCallback(() => {
+    setShowImagesZoom(false);
+  }, []);
+
   if (images.length === 1) {
     // role을 넣어주면 혹시나 시각장애인이 스크린 리더를 이용할때 좀더 햇갈리지 않게 사용할수 있다. ex) presentation => 클릭할 수 있지만 클릭할 필요는 없다
     return (
@@ -17,6 +24,7 @@ const PostImages = ({ images }: { images: ImageSrc[] }) => {
           alt={images[0].src}
           onClick={onZoom}
         />
+        {showImagesZoom && <ImageZoom images={images} onClose={onClose} />}
       </>
     );
   }
@@ -37,6 +45,7 @@ const PostImages = ({ images }: { images: ImageSrc[] }) => {
           alt={images[1].src}
           onClick={onZoom}
         />
+        {showImagesZoom && <ImageZoom images={images} onClose={onClose} />}
       </>
     );
   }
@@ -66,6 +75,7 @@ const PostImages = ({ images }: { images: ImageSrc[] }) => {
           개의 사진 더보기
         </div>
       </div>
+      {showImagesZoom && <ImageZoom images={images} onClose={onClose} />}
     </>
   );
 };
